@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 30% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 252 59% 48%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 8% 46%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 252 59% 48%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 252 59% 54%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 252 59% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(135deg, rgba(176, 219, 255, 0.2), rgba(201, 164, 255, 0.2), rgba(255, 189, 189, 0.2));
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+}
+
+/* Modern Card Styles */
+.modern-card {
+  @apply bg-white/80 dark:bg-card/80 backdrop-blur-md rounded-2xl shadow-lg border border-white/20 dark:border-white/10 transition-all duration-300;
+}
+
+.modern-card:hover {
+  @apply shadow-xl transform -translate-y-1;
+}
+
+.modern-card-highlight {
+  @apply bg-gradient-to-br from-white/90 to-white/70 dark:from-card/90 dark:to-card/70 backdrop-blur-md rounded-2xl shadow-lg border border-white/20 dark:border-white/10 transition-all duration-300;
+}
+
+.modern-card-highlight:hover {
+  @apply shadow-xl transform -translate-y-1;
+}
+
+/* Glass Effect */
+.glass {
+  @apply bg-white/40 dark:bg-black/20 backdrop-blur-md border border-white/20 dark:border-white/10;
+}
+
+.glass-solid {
+  @apply bg-white/80 dark:bg-black/50 backdrop-blur-md border border-white/20 dark:border-white/10;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Staggered items */
+.staggered-item {
+  opacity: 1;
+}
+
+.staggered-animation .staggered-item:nth-child(1) {
+  animation: fadeIn 0.3s ease 0.05s forwards;
+}
+.staggered-animation .staggered-item:nth-child(2) {
+  animation: fadeIn 0.3s ease 0.1s forwards;
+}
+.staggered-animation .staggered-item:nth-child(3) {
+  animation: fadeIn 0.3s ease 0.15s forwards;
+}
+.staggered-animation .staggered-item:nth-child(4) {
+  animation: fadeIn 0.3s ease 0.2s forwards;
+}
+.staggered-animation .staggered-item:nth-child(5) {
+  animation: fadeIn 0.3s ease 0.25s forwards;
+}
+
+/* Questions container */
+.questions-container {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+.questions-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.questions-container::-webkit-scrollbar-track {
+  background: rgba(241, 242, 243, 0.5);
+  border-radius: 10px;
+}
+
+.questions-container::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 10px;
+}
+
+.questions-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(107, 114, 128, 0.7);
+}
+
+/* Dark mode scrollbar */
+.dark .questions-container::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.5);
+}
+
+.dark .questions-container::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.5);
+}
+
+.dark .questions-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.7);
+}
+
+/* Rating stars */
+.rating {
+  @apply flex items-center;
+}
+
+.rating-star {
+  @apply text-yellow-400 h-4 w-4;
+}
+
+/* Category badges */
+.category-badge {
+  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors;
+}
+
+.category-badge-primary {
+  @apply bg-primary/10 text-primary;
+}
+
+.category-badge-secondary {
+  @apply bg-purple-500/10 text-purple-500;
+}
+
+.category-badge-success {
+  @apply bg-green-500/10 text-green-500;
+}
+
+.category-badge-warning {
+  @apply bg-amber-500/10 text-amber-500;
+}
+
+/* Sidebar */
+.sidebar {
+  @apply fixed left-0 top-0 z-40 h-screen w-64 border-r border-r-border bg-white/80 dark:bg-card/80 backdrop-blur-md transition-transform;
+}
+
+.sidebar-item {
+  @apply flex items-center gap-3 rounded-lg px-3 py-2 text-base transition-all hover:bg-primary/10;
+}
+
+.sidebar-item-active {
+  @apply bg-primary/10 text-primary font-medium;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    @apply -translate-x-full;
+  }
+
+  .sidebar.open {
+    @apply translate-x-0;
+  }
+}
+
+/* Add styles for the theme toggle button */
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  @apply fixed top-4 right-4 z-50 rounded-full w-12 h-12 flex items-center justify-center;
+  @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-lg;
+  @apply border border-white/20 dark:border-white/10;
+  @apply transition-all duration-300 hover:scale-110;
+}
+
+.theme-toggle-icon {
+  @apply h-6 w-6 text-gray-800 dark:text-white;
+}
+
+/* Container adjustments for sidebar */
+.container {
+  @apply transition-all duration-300;
+}
