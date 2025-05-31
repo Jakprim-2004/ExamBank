@@ -2,7 +2,6 @@
 
 แพลตฟอร์มจัดเก็บและแชร์ข้อสอบที่ช่วยให้คุณเรียนรู้ได้อย่างมีประสิทธิภาพ
 
-![ExamBank Screenshot](https://via.placeholder.com/800x400/6366f1/ffffff?text=ExamBank+Dashboard)
 
 ## ✨ คุณสมบัติหลัก
 
